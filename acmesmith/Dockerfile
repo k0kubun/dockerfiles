@@ -1,7 +1,7 @@
 FROM k0kubun/ruby:2.6.0-preview2
 ENV RUBYOPT="--jit"
 
-RUN app /app
+RUN mkdir /app
 WORKDIR /app
 
 COPY Gemfile /app
