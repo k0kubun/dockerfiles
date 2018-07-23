@@ -1,8 +1,11 @@
 FROM k0kubun/ruby:2.6.0-preview2
 
-# Some timezone tests don't succeed without tzdata
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata
+# Some timezone tests don't succeed without tzdata.
+# Sudo is for running some commands as root.
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata sudo
 
-# Some file permission tests don't succeed with root
+# Some file permission tests don't succeed with root.
+# But root privilege is also needed to modify /etc/hosts.
 RUN useradd -s /bin/bash test
+RUN echo "test ALL=NOPASSWD: ALL" >> /etc/sudoers
 USER test
