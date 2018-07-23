@@ -6,11 +6,3 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata s
 
 # Some file permission tests don't succeed with root.
 RUN useradd -s /bin/bash test
-
-# But root privilege is also needed to modify /etc/hosts.
-RUN echo "test ALL=NOPASSWD: ALL" >> /etc/sudoers
-
-# Prevent `mkdir -p /pipeline` / `rm -rf /pipeline` failure
-RUN chmod 777 /
-
-USER test
