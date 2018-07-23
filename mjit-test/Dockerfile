@@ -11,6 +11,6 @@ RUN useradd -s /bin/bash test
 RUN echo "test ALL=NOPASSWD: ALL" >> /etc/sudoers
 
 # Prevent `mkdir -p /pipeline` / `rm -rf /pipeline` failure
-RUN chown 777 /
+RUN chmod 777 /
 
 USER test
