@@ -5,4 +5,4 @@ FROM k0kubun/ruby:2.6.0-preview2
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata sudo
 
 # Some file permission tests don't succeed with root.
-RUN useradd -s /bin/bash test
+RUN useradd --shell /bin/bash --create-home test
