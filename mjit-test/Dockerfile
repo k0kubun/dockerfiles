@@ -10,7 +10,7 @@ RUN useradd -s /bin/bash test
 # But root privilege is also needed to modify /etc/hosts.
 RUN echo "test ALL=NOPASSWD: ALL" >> /etc/sudoers
 
-# `mkdir -p /pipeline` is needed beforehand
-RUN chown test:test /
+# Prevent `mkdir -p /pipeline` failure
+RUN mkdir -p /pipeline && chown test:test /pipeline
 
 USER test
