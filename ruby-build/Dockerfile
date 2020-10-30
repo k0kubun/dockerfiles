@@ -19,5 +19,5 @@ RUN apt-get update && apt-get install -y \
   git
 
 RUN git clone https://github.com/rbenv/ruby-build.git /ruby-build && \
-  git -C /ruby-build reset --hard 0e33b111a777d3f9c79435a4fcbae9a99b2ff264 && \
+  git -C /ruby-build reset --hard 47610498f00fce2665106370b543651a76b9a7be && \
   /ruby-build/install.sh && rm -rf /ruby-build
