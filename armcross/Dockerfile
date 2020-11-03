@@ -4,5 +4,5 @@ MAINTAINER k0kubun
 RUN apt-get update && apt-get install -y \
   make git \
   gcc-multilib \
-  build-essential \
-  g++-6-arm-linux-gnueabihf
+  build-essential
+RUN apt-get install -y g++-6-arm-linux-gnueabihf
